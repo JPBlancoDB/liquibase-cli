@@ -1,0 +1,12 @@
+# IDEs
+.vscode
+
+# Dependencies
+/node_modules
+
+# Test folder
+output
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
