@@ -1,12 +1,27 @@
 "use strict";
 
 const fs = require("fs");
+const path = require("path");
+const copyDirectory = require("./copy-directory");
+const copyFile = require("./copy-file");
+const templatePath = path.join(__dirname, "/../../templates/");
 
 const createDefault = () => {
-  const fileContent = "default";
+  const defaultDirectory = path.join(templatePath, "project-mysql");
 
   try {
-    fs.writeFileSync("file", fileContent);
+    const filesToCopy = fs.readdirSync(defaultDirectory);
+
+    filesToCopy.forEach(item => {
+      const file = `${defaultDirectory}/${item}`;
+      const itemStat = fs.statSync(file);
+
+      if (itemStat.isFile()) {
+        copyFile(file);
+      } else if (itemStat.isDirectory()) {
+        copyDirectory(file);
+      }
+    });
   } catch (e) {
     console.log("Cannot write file ", e);
   }
