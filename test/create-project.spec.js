@@ -25,17 +25,22 @@ describe('Create Projects', function() {
     const directory = 'directory';
     const file = 'file';
     const content = `${directory}/${file}`;
-    sinon.stub(fs, 'readdirSync').returns([file]);
+    const readdirSyncStub = sinon.stub(fs, 'readdirSync').returns([file]);
     const statSyncFake = {
-      isFile: sinon.stub().returns(true)
+      isFile: sinon.stub().returns(true),
+      isDirectory: sinon.stub().returns(false)
     };
     const fsStatStub = sinon.stub(fs, 'statSync').returns(statSyncFake);
     const copyStub = sinon.stub(copy, 'file');
 
     createProject.createProject(directory);
 
+    readdirSyncStub.restore();
+    fsStatStub.restore();
+
     expect(statSyncFake.isFile.calledOnce).to.be.true;
+    expect(statSyncFake.isDirectory.notCalled).to.be.true;
     expect(fsStatStub.calledOnceWithExactly(content)).to.be.true;
-    expect(copyStub.calledOnceWithExactly(content, file)).to.be.true;
+    expect(copyStub.calledOnceWithExactly(content, file, undefined)).to.be.true;
   });
 });

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-"use strict";
+'use strict';
 
-const program = require("commander");
-const pkg = require("./package.json");
-const project = require("./src/projects");
+const program = require('commander');
+const pkg = require('./package.json');
+const project = require('./src/projects');
 
 program
-  .version(pkg.version, "-v, --version")
-  .option("-p, --project [db]", "Create new project")
+  .version(pkg.version, '-v, --version')
+  .option('-p, --project [db]', 'Create new project')
   .parse(process.argv);
 
 if (program.project) {

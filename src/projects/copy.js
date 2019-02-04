@@ -3,17 +3,20 @@
 const fs = require('fs');
 const path = require('path');
 
-const file = (file, fileName) => {
-  const contents = fs.readFileSync(file, 'utf8');
+const getPath = (fileName, pathName) => {
+  if (pathName) {
+    return path.join(process.cwd(), pathName, fileName);
+  }
 
-  fs.writeFileSync(path.join(process.cwd(), fileName), contents, 'utf8');
+  return path.join(process.cwd(), fileName);
 };
 
-const directory = dir => {
-  console.log(dir);
+const file = (file, fileName, pathName) => {
+  const contents = fs.readFileSync(file, 'utf8');
+
+  fs.writeFileSync(getPath(fileName, pathName), contents, 'utf8');
 };
 
 module.exports = {
-  file,
-  directory
+  file
 };
