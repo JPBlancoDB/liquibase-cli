@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Liquibase CLI",
   "main": "index.js",
+  "bin": {
+    "liquibase-cli": "./index.js"
+  },
   "scripts": {
     "test": "mocha"
   },
