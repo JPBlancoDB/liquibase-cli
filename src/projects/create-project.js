@@ -1,10 +1,9 @@
-"use strict";
+'use strict';
 
-const program = require("commander");
-const fs = require("fs");
-const copyDirectory = require("./copy-directory");
-const copyFile = require("./copy-file");
-const logger = require("../utils/logger");
+const program = require('commander');
+const fs = require('fs');
+const copy = require('./copy');
+const logger = require('../utils/logger');
 
 const createProject = directory => {
   try {
@@ -15,13 +14,13 @@ const createProject = directory => {
       const itemStat = fs.statSync(file);
 
       if (itemStat.isFile()) {
-        copyFile(file, item);
+        copy.file(file, item);
       } else if (itemStat.isDirectory()) {
-        copyDirectory(file);
+        copy.directory(file);
       }
     });
-  } catch {
-    logger.log("Invalid database provider");
+  } catch (e) {
+    logger.log('Invalid database provider');
     program.help();
   }
 };
