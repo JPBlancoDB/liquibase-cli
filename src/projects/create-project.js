@@ -4,6 +4,7 @@ const program = require("commander");
 const fs = require("fs");
 const copyDirectory = require("./copy-directory");
 const copyFile = require("./copy-file");
+const logger = require("../utils/logger");
 
 const createProject = directory => {
   try {
@@ -19,10 +20,12 @@ const createProject = directory => {
         copyDirectory(file);
       }
     });
-  } catch (e) {
-    console.log("Invalid project ", e);
+  } catch {
+    logger.log("Invalid database provider");
     program.help();
   }
 };
 
-module.exports = createProject;
+module.exports = {
+  createProject
+};
