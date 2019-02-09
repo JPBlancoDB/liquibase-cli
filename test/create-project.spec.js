@@ -4,7 +4,7 @@ const fs = require('fs');
 const program = require('commander');
 const createProject = require('../src/projects/create-project');
 const logger = require('../src/utils/logger');
-const copy = require('../src/projects/copy');
+const copy = require('../src/utils/copy');
 
 const statSync = value => {
   return {

@@ -2,7 +2,7 @@
 
 const program = require('commander');
 const fs = require('fs');
-const copy = require('./copy');
+const copy = require('../utils/copy');
 const logger = require('../utils/logger');
 const currentDir = process.cwd();
 

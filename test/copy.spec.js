@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const sinon = require('sinon');
 const expect = require('chai').expect;
-const copy = require('../src/projects/copy');
+const copy = require('../src/utils/copy');
 
 describe('Copy', function() {
   afterEach(function() {
