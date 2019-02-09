@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/ec4a86b2331037ba2d96/maintainability)](https://codeclimate.com/github/JPBlancoDB/liquibase-cli/maintainability)
+
 # Liquibase CLI
 
 The purpose of this cli is using [Liquibase](http://www.liquibase.org/) from the console without any extra configuration.
