@@ -41,6 +41,6 @@ describe('Create Projects', function() {
     expect(statSyncFake.isFile.calledOnce).to.be.true;
     expect(statSyncFake.isDirectory.notCalled).to.be.true;
     expect(fsStatStub.calledOnceWithExactly(content)).to.be.true;
-    expect(copyStub.calledOnceWithExactly(content, file, undefined)).to.be.true;
+    expect(copyStub.calledOnceWith(content, file)).to.be.true;
   });
 });
