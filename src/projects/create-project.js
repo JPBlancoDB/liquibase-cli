@@ -25,8 +25,9 @@ const copyFiles = (directory, subDirectory) => {
 const createProject = directory => {
   try {
     copyFiles(directory);
-  } catch {
+  } catch (e) {
     logger.log('Invalid database provider');
+    logger.error(e);
     program.help();
   }
 };
