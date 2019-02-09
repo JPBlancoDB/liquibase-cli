@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/ec4a86b2331037ba2d96/maintainability)](https://codeclimate.com/github/JPBlancoDB/liquibase-cli/maintainability) [![Coverage Status](https://coveralls.io/repos/github/JPBlancoDB/liquibase-cli/badge.svg?branch=master)](https://coveralls.io/github/JPBlancoDB/liquibase-cli?branch=master)
+[![Build Status](https://travis-ci.org/JPBlancoDB/liquibase-cli.svg?branch=master)](https://travis-ci.org/JPBlancoDB/liquibase-cli) [![Maintainability](https://api.codeclimate.com/v1/badges/ec4a86b2331037ba2d96/maintainability)](https://codeclimate.com/github/JPBlancoDB/liquibase-cli/maintainability) [![Coverage Status](https://coveralls.io/repos/github/JPBlancoDB/liquibase-cli/badge.svg?branch=master)](https://coveralls.io/github/JPBlancoDB/liquibase-cli?branch=master)
 
 # Liquibase CLI
 
