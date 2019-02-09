@@ -10,7 +10,8 @@ describe('Create Projects', function() {
   it('should invoke program help when error is thrown', function() {
     const fsStub = sinon.stub(fs, 'readdirSync').throws();
     const programStub = sinon.stub(program, 'help');
-    const loggerStub = sinon.stub(logger, 'log');
+    const loggerLogStub = sinon.stub(logger, 'log');
+    const loggerErrorStub = sinon.stub(logger, 'error');
 
     createProject.createProject('directory');
 
@@ -18,7 +19,8 @@ describe('Create Projects', function() {
 
     expect(fsStub.calledOnce).to.be.true;
     expect(programStub.calledOnce).to.be.true;
-    expect(loggerStub.calledOnceWithExactly('Invalid database provider')).to.be.true;
+    expect(loggerLogStub.calledOnceWithExactly('Invalid database provider')).to.be.true;
+    expect(loggerErrorStub.calledOnce).to.be.true;
   });
 
   it('should invoke copy.file when item is of type file', function() {
