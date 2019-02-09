@@ -7,6 +7,10 @@ const logger = require('../src/utils/logger');
 const copy = require('../src/projects/copy');
 
 describe('Create Projects', function() {
+  afterEach(function() {
+    sinon.restore();
+  });
+
   it('should invoke program help when error is thrown', function() {
     const fsStub = sinon.stub(fs, 'readdirSync').throws();
     const programStub = sinon.stub(program, 'help');
@@ -14,8 +18,6 @@ describe('Create Projects', function() {
     const loggerErrorStub = sinon.stub(logger, 'error');
 
     createProject.createProject('directory');
-
-    fsStub.restore();
 
     expect(fsStub.calledOnce).to.be.true;
     expect(programStub.calledOnce).to.be.true;
@@ -36,9 +38,6 @@ describe('Create Projects', function() {
     const copyStub = sinon.stub(copy, 'file');
 
     createProject.createProject(directory);
-
-    readdirSyncStub.restore();
-    fsStatStub.restore();
 
     expect(statSyncFake.isFile.calledOnce).to.be.true;
     expect(statSyncFake.isDirectory.notCalled).to.be.true;
