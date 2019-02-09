@@ -1,4 +1,13 @@
 language: node_js
+
 node_js:
-  - iojs
-after_success: 'npm run coveralls'
+  - 'node'
+  - 10
+  - 8
+  - 6
+
+git:
+  depth: 1
+
+after_script:
+  - 'cat ./coverage/lcov.info | ./node_modules/.bin/coveralls'
